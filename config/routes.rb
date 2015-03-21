@@ -1,4 +1,5 @@
 HomesliceRe::Application.routes.draw do
+  mount Dashing::Engine, at: Dashing.config.engine_path
   root "pages#home"
   get "home", to: "pages#home", as: "home"
   get "inside", to: "pages#inside", as: "inside"
@@ -8,6 +9,7 @@ HomesliceRe::Application.routes.draw do
   get "posts", to: "pages#posts", as: "posts"
   get "posts/:id", to: "pages#show_post", as: "post"
   devise_for :users
+  devise_for :agents, :controllers => {registrations: 'agents/registrations'}
 
   namespace :admin do
     root "base#index"

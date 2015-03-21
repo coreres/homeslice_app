@@ -14,7 +14,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'braintree'
 gem 'sendgrid'
 gem 'dashing-rails'
-
+gem 'redis'
 
 # Necessary for Windows OS (won't install on *nix systems)
 # gem 'tzinfo-data', platforms: [:mingw, :mswin]
@@ -75,3 +75,4 @@ end
 
 gem "bower-rails", "~> 0.9.2"
 gem 'better_logging'
+gem 'pundit'

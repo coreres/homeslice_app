@@ -43,4 +43,6 @@ HomesliceRe::Application.configure do
     user_name: ENV["SMTP_USER"],
     password: ENV["SMTP_PWD"]
   }
+
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:637d72a361d04b0fb7b4dd2b9ac52412@greeneye.redistogo.com:9382/'
 end
