@@ -23,6 +23,9 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  def dashboard
+  end
+
   # Redirects on successful sign in
   def after_sign_in_path_for(resource)
     inside_path

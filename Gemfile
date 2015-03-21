@@ -4,15 +4,17 @@ ruby '2.2.1'
 # Standard Rails gems
 gem 'rails', '4.2.0'
 gem 'sass-rails', '5.0.1'
-gem 'uglifier', '2.7.1'
+gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '4.0.3'
 gem 'turbolinks', '2.5.3'
-gem 'jbuilder', '2.2.11'
+gem 'jbuilder', '2.0'
 gem 'bcrypt', '3.1.10'
+gem 'sdoc', '~> 0.4.0',          group: :doc
+
 
 # Necessary for Windows OS (won't install on *nix systems)
-gem 'tzinfo-data', platforms: [:mingw, :mswin]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # Kaminari: https://github.com/amatsuda/kaminari
 gem 'kaminari', '0.16.3'
@@ -41,6 +43,9 @@ end
 # SQLite 3
 group :development, :test do
   gem 'sqlite3', '1.3.10'
+  gem 'better_errors'
+  gem 'meta_request'
+  gem 'binding_of_caller'
 end
 
 # Devise: https://github.com/plataformatec/devise
@@ -63,3 +68,6 @@ end
 group :production do
   gem 'unicorn'
 end
+
+gem "bower-rails", "~> 0.9.2"
+gem 'better_logging'

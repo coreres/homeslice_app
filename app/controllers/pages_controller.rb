@@ -2,8 +2,13 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: [
     :inside
   ]
+  layout 'pages'
 
   def home
+  end
+
+  def title(name)
+     name.titleize
   end
 
   def inside
@@ -19,6 +24,25 @@ def posts
     redirect_to root_path
   end
 
+  # set another layout for a specific action
+  def template
+    render :layout => 'application'
+  end
+
+  def notfound
+  end
+
+  def login
+  end
+
+  def register
+  end
+
+  def recover
+  end
+
+  def lock
+  end
   
   def email
     @name = params[:name]
