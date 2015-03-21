@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   
 # Relations
 has_many :posts
-
+ enum role: [ :admin, :user, :agent, :broker]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
