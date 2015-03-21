@@ -8,8 +8,12 @@ HomesliceRe::Application.routes.draw do
   # get "index", to: "pages#index", as: "index"
   get "posts", to: "pages#posts", as: "posts"
   get "posts/:id", to: "pages#show_post", as: "post"
-  devise_for :users
-  devise_for :agents, :controllers => {registrations: 'agents/registrations'}
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
+  resources :users do
+    resource :account
+    resource :agent_account
+  end
+  # devise_for :agents, :controllers => {registrations: 'agents/registrations'}
 
   namespace :admin do
     root "base#index"

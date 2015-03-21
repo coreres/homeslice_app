@@ -15,6 +15,8 @@ gem 'braintree'
 gem 'sendgrid'
 gem 'dashing-rails'
 gem 'redis'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 # Necessary for Windows OS (won't install on *nix systems)
 # gem 'tzinfo-data', platforms: [:mingw, :mswin]
@@ -75,4 +77,3 @@ end
 
 gem "bower-rails", "~> 0.9.2"
 gem 'better_logging'
-gem 'pundit'
