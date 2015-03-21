@@ -13,7 +13,7 @@ gem 'bcrypt', '3.1.10'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'braintree'
 gem 'sendgrid'
-gem 'dashing-rails'
+# gem 'dashing-rails'
 gem 'redis'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
@@ -21,6 +21,7 @@ gem 'omniauth'
 gem 'geocoder'
 # gem 'activeadmin', github: 'activeadmin'
 gem 'wicked'
+gem 'high_voltage'
 # Necessary for Windows OS (won't install on *nix systems)
 # gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
@@ -56,6 +57,8 @@ group :development, :test do
   gem 'better_errors'
   gem 'meta_request'
   gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'pry'
 end
 
 # Devise: https://github.com/plataformatec/devise
@@ -74,4 +77,4 @@ group :production do
 end
 
 gem "bower-rails", "~> 0.9.2"
-gem 'better_logging'
+# gem 'better_logging'

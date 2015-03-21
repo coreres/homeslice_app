@@ -9,8 +9,6 @@
       <div class="panel-body">
          <p class="text-center pv">SIGNUP TODAY!</p>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), class:"mb-lg") do |f| %>
-
-      <!--<form role="form" data-parsley-validate="" novalidate="" class="mb-lg">-->
             <div class="form-group has-feedback">
               <%= f.input :first_name, autofocus: true %>
             </div>
@@ -31,18 +29,14 @@
             </div>
             <div class="clearfix">
                <div class="checkbox c-checkbox pull-left mt0">
-                 <%= f.input_field :agreed, as: :boolean %>
-                     <!--<input type="checkbox" value="" required="required" name="agreed" />-->
-                     I agree with the <%= link_to "Terms", pages_terms_path %>
+
                </div>
             </div>
             <div class="form-actions">
               <%= f.button :submit, "Sign up", class:"btn btn-block btn-primary mt-lg"  %>
             </div>
-         <!--</form>-->
          <p class="pt-lg text-center">Have an account?</p><%= link_to "Login", new_user_session_path, class:"btn btn-block btn-default" %>
             <% end %>
       </div>
    </div>
-   <!-- END panel-->
 </div>

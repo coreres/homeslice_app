@@ -1,15 +1,15 @@
 {
-  "name": "Angle",
+  "name": "Homeslice.io",
   "version": "0.0.0",
   "authors": [
     "@themicon_co"
   ],
-  "description": "Angle - Bootstrap Admin App + jQuery",
+  "description": "Homeslice -- Real Estate Tasks",
   "main": "index.html",
   "keywords": [
-    "bootstrap",
-    "jquery",
-    "admin",
+    "real estate",
+    "tasks",
+    "realty",
     "theme",
     "dashboard"
   ],

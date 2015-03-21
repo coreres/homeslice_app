@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @agent_account.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @agent_account.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @agent_account.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @agent_account.quantity %>
+</p>
+
+<p>
+  <strong>Category names:</strong>
+  <%= @agent_account.categories.map(&:name).join(", ") %>
+</p>
+
+<p>
+  <strong>Available at:</strong>
+  <%= @agent_account.available_at %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @agent_account.tags %>
+</p>
+
+
+<%= link_to 'Edit', edit_agent_account_path(@agent_account) %> |
+<%= link_to 'Back', @agent_account_path %>

@@ -13,6 +13,10 @@ class PagesController < ApplicationController
 
   def inside
   end
+
+  def sign_up
+
+  end
   
 def posts
     @posts = Post.published.page(params[:page]).per(10)

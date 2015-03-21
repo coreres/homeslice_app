@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   
 # Relations
 has_many :posts
+has_many :tasks
+
  enum role: { client: 0, agent: 1, broker: 2, admin: 3 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

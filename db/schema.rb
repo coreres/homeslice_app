@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321115452) do
+ActiveRecord::Schema.define(version: 20150321134754) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,8 +22,31 @@ ActiveRecord::Schema.define(version: 20150321115452) do
 
   create_table "agent_accounts", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "license_number"
+    t.date     "license_expiration"
+    t.string   "mobile_phone"
+    t.string   "agent_physical_address"
+    t.string   "agent_city"
+    t.string   "agent_state"
+    t.string   "agent_zip"
+    t.string   "company_name"
+    t.string   "company_address"
+    t.string   "company_city"
+    t.string   "company_state"
+    t.string   "company_zip"
+    t.string   "company_phone"
+    t.string   "company_fax"
+    t.string   "broker_name"
+    t.string   "checks_payable_to"
+    t.string   "payment_address"
+    t.string   "payment_city"
+    t.string   "payment_state"
+    t.string   "payment_zip"
+    t.boolean  "managing_broker"
+    t.string   "managing_broker_name"
+    t.boolean  "direct_payment"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
