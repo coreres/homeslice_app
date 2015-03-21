@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Agent:</strong>
+  <%= @task_assignment.agent %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @task_assignment.task %>
+</p>
+
+<%= link_to 'Edit', edit_task_assignment_path(@task_assignment) %> |
+<%= link_to 'Back', task_assignments_path %>

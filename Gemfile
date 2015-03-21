@@ -73,8 +73,9 @@ group :production do
   gem 'pg'
   gem 'puma'
   gem 'rails_12factor'
-
 end
 
 gem "bower-rails", "~> 0.9.2"
 # gem 'better_logging'
+gem 'resque'
+gem 'resque-scheduler'
