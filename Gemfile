@@ -69,9 +69,8 @@ group :production do
   gem 'pg'
 end
 
-# Unicorn: http://unicorn.bogomips.org
 group :production do
-  gem 'unicorn'
+  gem 'puma'
 end
 
 gem "bower-rails", "~> 0.9.2"
