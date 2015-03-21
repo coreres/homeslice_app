@@ -27,6 +27,8 @@ gem 'font-awesome-sass', '4.3.1'
 
 # Bootstrap 3: https://github.com/twbs/bootstrap-sass
 gem 'bootstrap-sass', '3.3.3'
+gem 'pundit'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', '3.5.1'
