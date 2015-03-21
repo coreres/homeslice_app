@@ -6,11 +6,14 @@ gem 'rails', '4.2.0'
 gem 'sass-rails', '5.0.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '4.1.0'
-gem 'jquery-rails', '4.0.3'
+gem 'jquery-rails', '~> 3.0.4'
 gem 'turbolinks', '2.5.3'
 gem 'jbuilder', '2.0'
 gem 'bcrypt', '3.1.10'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'braintree'
+gem 'sendgrid'
+gem 'dashing-rails'
 
 
 # Necessary for Windows OS (won't install on *nix systems)
