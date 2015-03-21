@@ -79,6 +79,7 @@ HomesliceRe::Application.routes.draw do
   get 'pages/recover'
   get 'pages/lock'
   get 'pages/template'
+  get 'pages/terms'
   # get 'pages/notfound'
 
   # api routes

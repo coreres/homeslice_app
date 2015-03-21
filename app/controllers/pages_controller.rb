@@ -43,6 +43,10 @@ def posts
 
   def lock
   end
+
+  def terms
+
+  end
   
   def email
     @name = params[:name]

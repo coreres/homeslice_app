@@ -17,7 +17,10 @@ gem 'dashing-rails'
 gem 'redis'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-
+gem 'omniauth'
+gem 'geocoder'
+# gem 'activeadmin', github: 'activeadmin'
+gem 'wicked'
 # Necessary for Windows OS (won't install on *nix systems)
 # gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
@@ -34,14 +37,14 @@ gem 'font-awesome-sass', '4.3.1'
 gem 'bootstrap-sass', '3.3.3'
 gem 'pundit'
 gem 'simple_form'
+# Figaro: https://github.com/laserlemon/figaro
+gem 'figaro', '1.1.0'
+
 
 group :development, :test do
   gem 'byebug', '3.5.1'
   gem 'web-console', '2.1.1'
-
-  # Figaro: https://github.com/laserlemon/figaro
-  gem 'figaro', '1.1.0'
-
+  gem 'awesome_print'
   # Spring: https://github.com/rails/spring
   gem 'spring', '1.3.3'
 end
@@ -62,17 +65,12 @@ gem 'devise', '3.4.1'
 gem 'redcarpet', '3.2.2'
 
 # Rails 12factor for Heroku: https://github.com/heroku/rails_12factor
-group :production do
-  gem 'rails_12factor'
-end
-
 # PostgreSQL gem for Heroku
 group :production do
   gem 'pg'
-end
-
-group :production do
   gem 'puma'
+  gem 'rails_12factor'
+
 end
 
 gem "bower-rails", "~> 0.9.2"

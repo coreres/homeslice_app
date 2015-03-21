@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321094019) do
+ActiveRecord::Schema.define(version: 20150321115452) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "user_id"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20150321094019) do
     t.string   "last_name"
     t.string   "provider"
     t.string   "uid"
+    t.boolean  "agreed"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
