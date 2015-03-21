@@ -2,13 +2,20 @@ class Agent::RegistrationsController < Devise::RegistrationsController
   before_action :load_wizard, only: [:new, :edit,:create, :update ]
 
 
-  # def new
-  #   super
-  # end
+  def new
+    @user = Agent.new
+    render "users/registrations/new"
+    # super
+  end
 
-  # def create
-  #   super
-  # end
+  def create
+    @user = Agent.new(params[:agent])
+    if @user.save!
+      redirect_to
+    end
+    # super
+
+  end
 
 
   private

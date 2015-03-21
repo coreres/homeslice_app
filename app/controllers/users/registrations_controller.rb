@@ -1,6 +1,16 @@
 class Users::RegistrationsController < Devise::RegistrationsController
    layout 'template'
-  def create
+
+  #  def new
+  #    @user = User.new
+  #  end
+  # def create
+  #   @user = User.create(sign_up_params)
+  #   if @user.save!
+  #     flash[:success = "User create successfully!"]
+  #     render
+  #   end
+  # end
     build_resource(sign_up_params)
 
     if resource.save
@@ -44,4 +54,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
       edit_user_agent_account_path(resource.id)
   end
 end
-end
+

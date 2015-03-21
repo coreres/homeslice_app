@@ -1,4 +1,14 @@
 HomesliceRe::Application.routes.draw do
+  get 'accounts/index'
+
+  get 'accounts/show'
+
+  get 'accounts/new'
+
+  get 'accounts/create'
+
+  get 'accounts/edit'
+
   resources :task_assignments
 
   resources :transactions

@@ -77,5 +77,5 @@ end
 
 gem "bower-rails", "~> 0.9.2"
 # gem 'better_logging'
-gem 'resque'
-gem 'resque-scheduler'
+# gem 'resque'
+# gem 'resque-scheduler'
