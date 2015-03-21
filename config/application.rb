@@ -31,6 +31,8 @@ module HomesliceRe
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
     # setup bower components folder for lookup
     config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+    # setup videos folder
+    config.assets.paths << Rails.root.join('app', 'assets', 'videos')
     # fonts
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     # images

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321020147) do
+ActiveRecord::Schema.define(version: 20150321020758) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -38,6 +38,26 @@ ActiveRecord::Schema.define(version: 20150321020147) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "title"
+    t.text     "short_description"
+    t.date     "due_date_begin"
+    t.date     "due_date_end"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "user_id"
+    t.boolean  "quickly"
+    t.integer  "time_estimate"
+    t.string   "location"
+    t.integer  "status",            default: 0
+    t.integer  "price"
+    t.integer  "assigned_agent"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
