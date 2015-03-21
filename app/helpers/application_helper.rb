@@ -6,4 +6,10 @@ module ApplicationHelper
   def action?(*action)
     action.include?(params[:action])
   end
+
+  def title(value)
+    unless value.nil?
+      @title = "#{value} | Homeslice"
+    end
+  end
 end

@@ -7,9 +7,6 @@ class PagesController < ApplicationController
   def home
   end
 
-  def title(name)
-     name.titleize
-  end
 
   def inside
   end
