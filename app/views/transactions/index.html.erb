@@ -1,8 +1,9 @@
+<div id="profile" role="tabpanel" class="tab-pane">
 <p id="notice"><%= notice %></p>
-
 <h1>Listing Transactions</h1>
+  <div class="table-responsive">
 
-<table>
+<table class="table table-bordered table-hover table-striped">
   <thead>
     <tr>
       <th>Task</th>
@@ -13,11 +14,11 @@
     </tr>
   </thead>
 
-  <tbody>
+  <!--<tbody>-->
     <% @transactions.each do |transaction| %>
       <tr>
         <td><%= transaction.task %></td>
-        <td><%= transaction.amount %></td>
+        <td><%= number_to_currency transaction.amount %></td>
         <td><%= transaction.trans_date %></td>
         <td><%= transaction.trans_time %></td>
         <td><%= link_to 'Show', transaction %></td>
@@ -27,7 +28,8 @@
     <% end %>
   </tbody>
 </table>
-
+    </div>
+<!---->
 <br>
-
 <%= link_to 'New Transaction', new_transaction_path %>
+</div>

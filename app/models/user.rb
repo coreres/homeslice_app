@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
+  rolify
 # Relations
-rolify
 has_many :posts
 has_many :tasks
+has_many :transactions
 has_one :account
 has_many :activities
 
@@ -77,4 +78,10 @@ end
   def self.users_count
     where("admin = ? AND locked = ?",false,false).count
   end
+
+  def name
+   name = "#{first_name.capitalize} #{last_name.capitalize}"
+  end
+
+
 end

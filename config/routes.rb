@@ -11,10 +11,11 @@ HomesliceRe::Application.routes.draw do
   # get "index", to: "pages#index", as: "index"
   get "posts", to: "pages#posts", as: "posts"
   get "posts/:id", to: "pages#show_post", as: "post"
-  devise_for :users, :controllers => {:registrations => "users/registrations"}
+  devise_for :users, :controllers => {:registrations => "registrations"}
   # devise_for :agents, :controllers => {:registrations => "agents/registrations"}
 
-
+  get "task/client"
+  get "task/agent"
   # get "agents/sign_up", to: "agents/registrations#new", as: "new_agent_registration"
 
   resources :users do

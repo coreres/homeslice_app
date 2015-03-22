@@ -1,11 +1,14 @@
 class ApplicationController < ActionController::Base
-  include Pundit
+  # include Pundit
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :reject_locked!, if: :devise_controller?
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, :alert => exception.message
+  end
 
 
   # Devise permitted params
@@ -58,5 +61,13 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :require_admin!
+
+  layout :layout_by_controller
+
+  protected
+
+  def layout_by_controller
+    devise_controller? ? 'devise' : 'application'
+  end
 
 end

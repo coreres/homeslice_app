@@ -22,6 +22,7 @@ gem 'geocoder'
 # gem 'activeadmin', github: 'activeadmin'
 gem 'wicked'
 gem 'high_voltage'
+gem 'paperclip'
 # Necessary for Windows OS (won't install on *nix systems)
 # gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
@@ -41,6 +42,7 @@ gem 'simple_form'
 gem 'cancancan'
 # Figaro: https://github.com/laserlemon/figaro
 gem 'figaro', '1.1.0'
+gem 'bootstrap-datepicker-rails'
 
 
 group :development, :test do
@@ -81,3 +83,5 @@ gem "bower-rails", "~> 0.9.2"
 # gem 'resque'
 # gem 'resque-scheduler'
  gem 'rolify'
+ gem 'rails_layout'
+gem 'state_machine'
