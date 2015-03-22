@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  resourcify
   # Use friendly_id
   extend FriendlyId
   friendly_id :title, use: :slugged

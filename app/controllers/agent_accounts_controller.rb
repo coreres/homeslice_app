@@ -1,5 +1,4 @@
-class AgentAccountsController < ApplicationController
-  class AgentAccountsController < ApplicationController
+class AgentAccountsController < AccountsController
     before_action :load_agent_account, only: [:show, :update, :edit, :destroy]
     before_action :load_wizard, only: [:new, :edit, :create, :update]
     layout 'form'
@@ -57,4 +56,3 @@ class AgentAccountsController < ApplicationController
 
   end
 
-end

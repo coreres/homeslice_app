@@ -1,16 +1,17 @@
 class Users::RegistrationsController < Devise::RegistrationsController
    layout 'template'
 
-  #  def new
-  #    @user = User.new
-  #  end
-  # def create
-  #   @user = User.create(sign_up_params)
-  #   if @user.save!
-  #     flash[:success = "User create successfully!"]
-  #     render
-  #   end
-  # end
+
+   def new
+     role = params[:role]
+     if role == '1'
+       @user = Agent.new
+     else
+       @user = User.new
+     end
+   end
+
+  def create
     build_resource(sign_up_params)
 
     if resource.save
@@ -49,9 +50,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # override the after signup path to your desired route, e.g
   def after_sign_up_path_for(resource)
     if sign_up_params[:role] == "0"
-      edit_user_account_path(resource.id)
+      user_dashboard_path(resource.id)
     elsif sign_up_params[:role] == "1"
       edit_user_agent_account_path(resource.id)
   end
 end
-
+end

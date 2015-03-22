@@ -8,12 +8,12 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
       </button>
-      <a href="#/" class="navbar-brand">
+        <%= link_to root_path, class:"navbar-brand"%>
          <div class="brand-logo">
-            <img src="<%= image_path('angle/logo.png') %>" alt="App Logo" class="img-responsive" />
+           <%= image_path('angle/logo.png', class:"image-responsive", alt:"App Logo") %>
          </div>
          <div class="brand-logo-collapsed">
-            <img src="<%= image_path('angle/logo-single.png') %>" alt="App Logo" class="img-responsive" />
+           <%= image_path('angle/logo-single.png', class:"image-responsive", alt:"App Logo") %>
          </div>
       </a>
    </div>

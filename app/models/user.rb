@@ -1,14 +1,17 @@
 class User < ActiveRecord::Base
-  
 # Relations
+rolify
 has_many :posts
 has_many :tasks
+has_one :account
+has_many :activities
 
- enum role: { client: 0, agent: 1, broker: 2, admin: 3 }
+
+enum role: { client: 0, agent: 1, broker: 2, admin: 3 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
   
   # Pagination
   paginates_per 100
@@ -21,24 +24,24 @@ has_many :tasks
     order(admin: :desc, email: :asc).page page_number
   end
 
-  # def self.from_omniauth(auth)
-  #   where(auth.slice(:provider, :uid)).first_or_create do |user|
-  #     user.provider = auth.provider
-  #     user.uid = auth.uid
-  #     user.username = auth.info.nickname
-  #   end
-  # end
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.username = auth.info.nickname
+    end
+  end
 
-  # def self.new_with_session(params, session)
-  #   if session["devise.user_attributes"]
-  #     new(session["devise.user_attributes"], without_protection: true) do |user|
-  #       user.attributes = params
-  #       user.valid?
-  #     end
-  #   else
-  #     super
-  #   end
-  # end
+  def self.new_with_session(params, session)
+    if session["devise.user_attributes"]
+      new(session["devise.user_attributes"], without_protection: true) do |user|
+        user.attributes = params
+        user.valid?
+      end
+    else
+      super
+    end
+  end
 
   def self.search_and_order(search, page_number)
     if search

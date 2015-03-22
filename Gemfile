@@ -36,8 +36,9 @@ gem 'font-awesome-sass', '4.3.1'
 
 # Bootstrap 3: https://github.com/twbs/bootstrap-sass
 gem 'bootstrap-sass', '3.3.3'
-gem 'pundit'
+# gem 'pundit'
 gem 'simple_form'
+gem 'cancancan'
 # Figaro: https://github.com/laserlemon/figaro
 gem 'figaro', '1.1.0'
 
@@ -79,3 +80,4 @@ gem "bower-rails", "~> 0.9.2"
 # gem 'better_logging'
 # gem 'resque'
 # gem 'resque-scheduler'
+ gem 'rolify'

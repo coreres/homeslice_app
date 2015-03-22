@@ -1,17 +1,6 @@
 HomesliceRe::Application.routes.draw do
-  get 'accounts/index'
 
-  get 'accounts/show'
 
-  get 'accounts/new'
-
-  get 'accounts/create'
-
-  get 'accounts/edit'
-
-  resources :task_assignments
-
-  resources :transactions
 
   # mount Dashing::Engine, at: Dashing.config.engine_path
   root "pages#home"
@@ -23,12 +12,37 @@ HomesliceRe::Application.routes.draw do
   get "posts", to: "pages#posts", as: "posts"
   get "posts/:id", to: "pages#show_post", as: "post"
   devise_for :users, :controllers => {:registrations => "users/registrations"}
+  # devise_for :agents, :controllers => {:registrations => "agents/registrations"}
+
+
+  # get "agents/sign_up", to: "agents/registrations#new", as: "new_agent_registration"
+
   resources :users do
     resource :account
     resource :agent_account
+    resources :task_applications
+    resources :activities
+    resources :transactions
+    resource :dashboard
   end
-  resources :agent_steps
-  # devise_for :agents, :controllers => {registrations: 'agents/registrations'}
+
+  scope 'agent' do
+    resources :users, as: 'agent_user'
+  end
+
+  # resources :agents do
+  #   resource :agent_account
+  # end
+  # resources :agent_steps
+  resources :task_applications
+
+  resources :comments
+
+  resources :activities
+
+  resources :task_assignments
+
+  resources :transactions
 
   namespace :admin do
     root "base#index"
@@ -53,7 +67,7 @@ HomesliceRe::Application.routes.draw do
   get 'pages/lock'
   get 'pages/template'
   get 'pages/terms'
-  get 'page/sign_up'
+  get 'pages/sign_up'
   # get 'pages/notfound'
 
   # api routes

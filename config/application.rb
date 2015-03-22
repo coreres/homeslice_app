@@ -78,7 +78,7 @@ module HomesliceRe
         'widgets.css'
     ]
 
-
+  config.paths['app/views'] << "app/views/devise"
 
 
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321134754) do
+ActiveRecord::Schema.define(version: 20150322013148) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20150321134754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id"
 
   create_table "agent_accounts", force: :cascade do |t|
     t.integer  "user_id"
@@ -49,6 +57,16 @@ ActiveRecord::Schema.define(version: 20150321134754) do
     t.boolean  "direct_payment"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["task_id"], name: "index_comments_on_task_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -75,6 +93,27 @@ ActiveRecord::Schema.define(version: 20150321134754) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
+  create_table "task_applications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "task_applications", ["task_id"], name: "index_task_applications_on_task_id"
+  add_index "task_applications", ["user_id"], name: "index_task_applications_on_user_id"
+
+  create_table "task_assignments", force: :cascade do |t|
+    t.integer  "agent_id"
+    t.integer  "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "task_assignments", ["agent_id"], name: "index_task_assignments_on_agent_id"
+  add_index "task_assignments", ["task_id"], name: "index_task_assignments_on_task_id"
+
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
     t.text     "short_description"
@@ -91,9 +130,22 @@ ActiveRecord::Schema.define(version: 20150321134754) do
     t.integer  "assigned_agent"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "task_id"
+    t.decimal  "amount"
+    t.date     "trans_date"
+    t.time     "trans_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "transactions", ["task_id"], name: "index_transactions_on_task_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

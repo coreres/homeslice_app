@@ -1,3 +1,4 @@
-class AgentAccount < ActiveRecord::Base
-  belongs_to :user
+class AgentAccount < Account
+  resourcify
+  belongs_to :agent
 end
