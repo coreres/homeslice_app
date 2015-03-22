@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @task_application.user %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @task_application.task %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @task_application.status %>
+</p>
+
+<%= link_to 'Edit', edit_task_application_path(@task_application) %> |
+<%= link_to 'Back', task_applications_path %>

@@ -1,0 +1,40 @@
+<h1>Listing agent_accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Available at</th>
+      <th>Tags</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agent_accounts.each do |agent_account| %>
+    <tr>
+      <td><%= agent_account.name %></td>
+      <td><%= agent_account.description %></td>
+      <td><%= agent_account.price %></td>
+      <td><%= agent_account.quantity %></td>
+      <td><%= agent_account.available_at %></td>
+      <td><%= agent_account.tags %></td>
+      <td><%= link_to 'Show', agent_account %></td>
+      <td><%= link_to 'Edit (with steps)', edit_agent_account_path(agent_account) %></td>
+      <td><%= link_to 'Edit (all fields)', edit_agent_account_path(agent_account, all: 1) %></td>
+      <td><%= link_to 'Destroy', agent_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Product (with steps)', new_agent_account_path %>
+<br>
+<%= link_to 'New Product (all fields)', new_agent_account_path(all: 1) %>
