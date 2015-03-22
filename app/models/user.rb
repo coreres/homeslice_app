@@ -80,7 +80,7 @@ end
   end
 
   def name
-   name = "#{first_name.capitalize} #{last_name.capitalize}"
+    [first_name, last_name].compact.join(' ').capitalize
   end
 
 

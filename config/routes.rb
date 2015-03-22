@@ -1,7 +1,4 @@
 HomesliceRe::Application.routes.draw do
-
-
-
   # mount Dashing::Engine, at: Dashing.config.engine_path
   root "pages#home"
   get "home", to: "pages#home", as: "home"
@@ -13,7 +10,9 @@ HomesliceRe::Application.routes.draw do
   get "posts/:id", to: "pages#show_post", as: "post"
   devise_for :users, :controllers => {:registrations => "registrations"}
   # devise_for :agents, :controllers => {:registrations => "agents/registrations"}
-
+  authenticated :user do
+     root :to => "main#dashboard", :as => "authenticated_root"
+  end
   get "task/client"
   get "task/agent"
   # get "agents/sign_up", to: "agents/registrations#new", as: "new_agent_registration"
@@ -27,23 +26,19 @@ HomesliceRe::Application.routes.draw do
     resource :dashboard
   end
 
-  scope 'agent' do
-    resources :users, as: 'agent_user'
-  end
-
-  # resources :agents do
-  #   resource :agent_account
+  # scope 'agent' do
+  #   resources :users, as: 'agent_user'
   # end
-  # resources :agent_steps
-  resources :task_applications
 
-  resources :comments
-
-  resources :activities
-
-  resources :task_assignments
-
-  resources :transactions
+  # resources :task_applications
+  #
+  # resources :comments
+  #
+  # resources :activities
+  #
+  # resources :task_assignments
+  #
+  # resources :transactions
 
   namespace :admin do
     root "base#index"
@@ -55,42 +50,31 @@ HomesliceRe::Application.routes.draw do
 
 
   # view routes
-  get '/widgets' => 'widgets#index'
-  get '/documentation' => 'documentation#index'
-
-  get 'dashboard/dashboard_v1'
-  get 'dashboard/dashboard_v2'
-  get 'dashboard/dashboard_v3'
-  get 'dashboard/dashboard_h'
-  get 'pages/login'
-  get 'pages/register'
-  get 'pages/recover'
-  get 'pages/lock'
-  get 'pages/template'
-  get 'pages/terms'
-  get 'pages/sign_up'
-  # get 'pages/notfound'
-
-  # api routes
-  get '/api/documentation' => 'api#documentation'
-  get '/api/datatable' => 'api#datatable'
-  get '/api/jqgrid' => 'api#jqgrid'
-  get '/api/jqgridtree' => 'api#jqgridtree'
-  get '/api/i18n/:locale' => 'api#i18n'
-  post '/api/xeditable' => 'api#xeditable'
-  get '/api/xeditable-groups' => 'api#xeditablegroups'
-
-
-
-
-
-
-
-
-
-
-
+  # get '/widgets' => 'widgets#index'
+  # get '/documentation' => 'documentation#index'
   #
+  # get 'dashboard/dashboard_v1'
+  # get 'dashboard/dashboard_v2'
+  # get 'dashboard/dashboard_v3'
+  # get 'dashboard/dashboard_h'
+  # get 'pages/login'
+  # get 'pages/register'
+  # get 'pages/recover'
+  # get 'pages/lock'
+  # get 'pages/template'
+  # get 'pages/terms'
+  # get 'pages/sign_up'
+  # # get 'pages/notfound'
+  #
+  # # api routes
+  # get '/api/documentation' => 'api#documentation'
+  # get '/api/datatable' => 'api#datatable'
+  # get '/api/jqgrid' => 'api#jqgrid'
+  # get '/api/jqgridtree' => 'api#jqgridtree'
+  # get '/api/i18n/:locale' => 'api#i18n'
+  # post '/api/xeditable' => 'api#xeditable'
+  # get '/api/xeditable-groups' => 'api#xeditablegroups'
+
   # get 'elements/button'
   # get 'elements/notification'
   # get 'elements/spinner'

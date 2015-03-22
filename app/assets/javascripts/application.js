@@ -12,8 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-datepicker
+//= require rails.validations
+//= require rails.validations.simple_form
 //= require turbolinks
 //= require bootstrap 
-//= require analytics
 //= require common
 //= require_tree ./angle
+
+

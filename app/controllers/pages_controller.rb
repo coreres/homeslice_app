@@ -3,10 +3,6 @@ class PagesController < ApplicationController
     :inside
   ]
   layout 'pages'
-
-  def index
-
-  end
   def home
   end
 
