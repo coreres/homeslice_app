@@ -1,7 +1,15 @@
 HomesliceRe::Application.routes.draw do
+  mount Payola::Engine => '/payola', as: :payola
+  get 'authentications/index'
+
+  get 'authentications/destroy'
+
+  resources :visitors
+
+  resources :listings
+
   # mount Dashing::Engine, at: Dashing.config.engine_path
-  root "pages#home"
-  get "home", to: "pages#home", as: "home"
+  root "visitors#index", as:"home"
   get "inside", to: "pages#inside", as: "inside"
   get "/contact", to: "pages#contact", as: "contact"
   post "/emailconfirmation", to: "pages#email", as: "email_confirmation"

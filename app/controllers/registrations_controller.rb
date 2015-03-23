@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
     if @role && ENV["ROLES"].include?(@role) && @role != "admin"
       super
     else
-      redirect_to root_path, :notice => 'Please select a role.'
+      redirect_to root_path
     end
   end
 

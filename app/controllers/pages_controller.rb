@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  skip_authorization_check
   before_action :authenticate_user!, only: [
     :inside
   ]
@@ -47,28 +48,28 @@ def posts
   def terms
 
   end
-  
+
+  # Preview html email template
   def email
-    @name = params[:name]
-    @email = params[:email]
-    @message = params[:message]
-    
-    if @name.blank?
-      flash[:alert] = "Please enter your name before sending your message. Thank you."
-      render :contact
-    elsif @email.blank? || @email.scan(/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i).size < 1
-      flash[:alert] = "You must provide a valid email address before sending your message. Thank you."
-      render :contact
-    elsif @message.blank? || @message.length < 10
-      flash[:alert] = "Your message is empty. Requires at least 10 characters. Nothing to send."
-      render :contact
-    elsif @message.scan(/<a href=/).size > 0 || @message.scan(/\[url=/).size > 0 || @message.scan(/\[link=/).size > 0 || @message.scan(/http:\/\//).size > 0
-      flash[:alert] = "You can't send links. Thank you for your understanding."
-      render :contact
-    else    
-      ContactMailer.contact_message(@name,@email,@message).deliver_now
-      redirect_to root_path, notice: "Your message was sent. Thank you."
+    tpl = (params[:layout] || 'hero').to_sym
+    tpl = :hero unless [:email, :hero, :simple].include? tpl
+    file = 'user_mailer/welcome_email'
+    @user = (defined?(FactoryGirl) \
+      ? User.new( FactoryGirl.attributes_for :user )
+    : User.new( email: 'test@example.com', first_name: 'John', last_name: 'Smith' ))
+    render file, layout: "emails/#{tpl}"
+    if params[:premail] == 'true'
+      puts "\n!!! USING PREMAILER !!!\n\n"
+      pre = Premailer.new(response_body[0],  warn_level: Premailer::Warnings::SAFE, with_html_string: true)
+      reset_response
+      # pre.warnings
+      render text: pre.to_inline_css, layout: false
     end
   end
+
+  def error
+    redirect_to root_path if flash.empty?
+  end
+
 
 end

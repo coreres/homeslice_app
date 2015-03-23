@@ -42,14 +42,14 @@ gem 'devise', '3.4.1'
 gem 'rolify'
 gem 'cancancan'
 gem 'figaro', '1.1.0'
+gem 'payola-payments'
 
-
-# gem 'rails_layout'
-# gem 'state_machine'
+gem 'rails_layout'
+gem 'state_machine'
 # gem 'dashing-rails'
-# gem 'activeadmin', github: 'activeadmin'
-# gem "bower-rails", "~> 0.9.2"
-
+gem 'activeadmin', github: 'activeadmin'
+gem "bower-rails", "~> 0.9.2"
+gem 'paper_trail'
 
 group :development, :test do
   gem 'byebug', '3.5.1'

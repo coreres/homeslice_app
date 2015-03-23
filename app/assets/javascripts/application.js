@@ -7,17 +7,26 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file.
 //
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
+// Read Sprockets README (https://github.com/sstephenson/sprockets//sprockets-directives) for details
 // about supported directives.
 //
 //= require jquery
+//= require payola
 //= require jquery_ujs
-//= require bootstrap-datepicker
-//= require rails.validations
-//= require rails.validations.simple_form
 //= require turbolinks
 //= require bootstrap 
 //= require common
 //= require_tree ./angle
+//= require jquery_2
+//= require jquery.turbolinks
+//= require nprogress
+//= require nprogress-turbolinks
+//= require rails_confirm_dialog
+//= require jquery.scrollto
+
+// Add error class to .avatar images if they fail to load
+// See avatar.scss and _avatar.html.haml
+//= require imagesloaded
+//= require avatar.errors
 
 
