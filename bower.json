@@ -65,20 +65,5 @@
     "eonasdan-bootstrap-datetimepicker": "4.0.0",
     "jquery-validation": "1.13.1",
     "Chart.js": "1.0.1"
-  },
-  "resolutions": {
-    "jquery-ui": "1.11.3",
-    "jquery": ">=1.4.2 <3",
-    "fullcalendar": "2.2.7",
-    "weather-icons": "1.3.2",
-    "jquery.inputmask": "3.1.61",
-    "animate.css": "3.2.1",
-    "fastclick": "1.0.6",
-    "flatdoc": "0.9.0",
-    "moment": "2.9.0",
-    "parsleyjs": "2.0.7",
-    "screenfull": "2.0.0",
-    "seiyria-bootstrap-slider": "4.5.0",
-    "datatables": "1.10.5"
   }
 }

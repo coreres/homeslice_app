@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
   before_filter :authenticate_user!
   resourcify
+  include Payola::Sellable
   validates_presence_of :user
   validates_presence_of :title
   validates_presence_of :short_description
@@ -22,6 +23,10 @@ class Task < ActiveRecord::Base
   end
 
   def location
+
+  end
+
+  def checkout
 
   end
 
